@@ -1,2 +1,1 @@
-# Pi-USB-NIC
-# Pi-USB-NIC
+树莓派变身USB无线网卡

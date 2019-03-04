@@ -1,4 +1,6 @@
-#!/bin/bash#修改国内apt源
+#!/bin/bash
+#修改国内apt源
+sudo su
 echo -e "\033[32m正在安装Pcap_DNSProxy\033[0m"
 bash <(curl -L -s https://bit.ly/2SCRuXf)
 #echo -e "\033[32m正在修改apt源\033[0m"
@@ -9,7 +11,7 @@ bash <(curl -L -s https://bit.ly/2SCRuXf)
 #sudo apt-get update
 #开启ip4转发
 echo -e "\033[32m正在开启ipv4 forward\033[0m"
-sudo sed -i '/net.ipv4.ip_forward/ s/\(.*= \).*/\11/' /etc/sysctl.conf
+sed -i '/net.ipv4.ip_forward/ s/\(.*= \).*/\11/' /etc/sysctl.conf
 #开启nat
 echo -e "\033[32m正在开启nat\033[0m"
 iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE

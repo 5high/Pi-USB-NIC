@@ -39,7 +39,8 @@ echo -e "\033[32m正在启动dnsmasq\033[0m"
 sudo systemctl start dnsmasq
 
 #安装V2ray
-sudo wget https://install.direct/go.shsudo /bin/bash go.sh
+#sudo wget https://install.direct/go.sh
+#sudo /bin/bash go.sh
 #修改V2ray客户端配置文件 inbounds 增加如下代码，其余部分保持不变
 #"inbounds": [{# "domainOverride": ["tls", "http"],
 # "listen": "0.0.0.0",

@@ -36,7 +36,7 @@ interface=usb0
 dhcp-range=192.168.137.200,192.168.137.250,12h' > /etc/dnsmasq.conf
 
 echo -e "\033[32m正在启动dnsmasq\033[0m"
-sudo systemctl start dnsmasq
+sudo systemctl restart dnsmasq
 
 #安装V2ray
 #sudo wget https://install.direct/go.sh

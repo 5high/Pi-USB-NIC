@@ -15,6 +15,9 @@ sudo sysctl -w net.ipv4.ip_forward=1
 #开启nat
 echo -e "\033[32m正在开启nat\033[0m"
 iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+#开启bbr加速
+echo -e "\033[32m正在开启bbr加速\033[0m"
+bash <(curl -L -s https://github.com/teddysun/across/raw/master/bbr.sh)
 #固定USB0网卡ip地址
 echo -e "\033[32m正在设置USB网卡IP地址\033[0m"
 sudo echo '#!/bin/bash' > /etc/network/if-up.d/usb0

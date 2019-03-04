@@ -77,6 +77,17 @@ sudo systemctl restart dnsmasq
 #sudo iptables -t mangle -A V2RAY -p tcp -j TPROXY --on-port 12345 --tproxy-mark 0x01/0x01
 #sudo iptables -t mangle -A PREROUTING -j V2RAYsudo iptables-save > /etc/iptables.ipv4.nat
 #增加开机启动
-sudo iptables-restore < /etc/iptables.ipv4.nat
-sudo sysctl -w net.ipv4.ip_forward=1
-sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+lines=(
+    'echo 1 > \/proc\/sys\/net\/ipv4\/ip_forward'
+    'iptables -t nat -A POSTROUTING -j MASQUERADE'
+
+    )
+    
+    for line in "${lines[@]}"; do
+        if grep "$line" /etc/rc.local > /dev/null; then
+            echo "$line: Line already added"
+        else
+            sudo sed -i "s/^exit 0$/$line\nexit 0/" /etc/rc.local
+            echo "Adding line $line"
+        fi
+    done

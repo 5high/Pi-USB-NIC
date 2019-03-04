@@ -20,7 +20,8 @@ sudo chmod +x /etc/network/if-up.d/usb0
 echo -e "\033[32m正在安装dnsmasq\033[0m"
 sudo apt-get install dnsmasq -y
 sudo systemctl enable dnsmasq
-echo -e "\033[32m正在安装dnsmasq\033[0m"sudo echo '
+echo -e "\033[32m正在安装dnsmasq\033[0m"
+sudo echo '
 # DNS
 DNSMASQ_OPTS="-p0"
 strict-order

@@ -1,6 +1,5 @@
 #!/bin/bash
 #修改国内apt源
-sudo su
 #echo -e "\033[32m正在安装Pcap_DNSProxy\033[0m"
 #bash <(curl -L -s https://bit.ly/2SCRuXf)
 echo -e "\033[32m正在修改apt源\033[0m"

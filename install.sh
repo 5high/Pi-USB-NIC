@@ -22,6 +22,7 @@ sudo apt-get install dnsmasq -y
 sudo systemctl enable dnsmasq
 echo -e "\033[32m正在安装dnsmasq\033[0m"sudo echo '
 # DNS
+DNSMASQ_OPTS="-p0"
 strict-order
 cache-size=1500
 conf-dir=/etc/dnsmasq.d

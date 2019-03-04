@@ -41,7 +41,7 @@ interface=usb0
 dhcp-range=192.168.137.200,192.168.137.250,12h' > /etc/dnsmasq.conf
 
 echo -e "\033[32m正在启动dnsmasq\033[0m"
-sudo systemctl restart dnsmasq
+sudo systemctl start dnsmasq
 
 #增加开机启动
 lines=(

@@ -34,7 +34,7 @@ conf-dir=/etc/dnsmasq.d
 no-ping
 dhcp-authoritative
 dhcp-option=3,192.168.137.100
-dhcp-option=6,192.168.137.100,114.114.114.114
+dhcp-option=6,192.168.137.100
 dhcp-lease-max=50
 dhcp-leasefile=/tmp/dnsmasq.leases
 interface=usb0

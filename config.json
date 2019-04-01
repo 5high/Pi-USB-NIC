@@ -1,7 +1,7 @@
 {
 	"inbounds": [{
 		"domainOverride": ["tls", "http"],
-		"listen": "192.168.1.14",
+		"listen": "0.0.0.0",
 		"port": 12345,
 		"protocol": "dokodemo-door",
 			"settings": {
@@ -28,7 +28,7 @@
 				"address": "5yzg.space",
 				"port": 443,
 				"users": [{
-					"id": "910FE01D-70B8-8DBA-173F-93C8B60AF5ED",
+					"id": "2ADB9675-EB28-08AF-14CB-11B9DEE32C7D",
 					"alterId": 64
 				}]
 			}]

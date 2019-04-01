@@ -1,0 +1,98 @@
+{
+	"inbounds": [{
+		"domainOverride": ["tls", "http"],
+		"listen": "192.168.1.14",
+		"port": 12345,
+		"protocol": "dokodemo-door",
+			"settings": {
+				"followRedirect": true
+			},
+		"streamSettings": {
+			"sockopt": {
+				"mark": 100,
+				"tcpFastOpen": true,
+				"tproxy": "tproxy"
+			}
+		}
+	}
+	],
+
+	"outbounds": [{
+		"mux": {
+			"enabled": true
+		},
+		"tag": "proxy",
+		"protocol": "vmess",
+		"settings": {
+			"vnext": [{
+				"address": "5yzg.space",
+				"port": 443,
+				"users": [{
+					"id": "910FE01D-70B8-8DBA-173F-93C8B60AF5ED",
+					"alterId": 64
+				}]
+			}]
+		},
+		"streamSettings": {
+			"network": "ws",
+			"security": "tls",
+			"tlsSettings": {
+				"serverName": "5yzg.space"
+			},
+			"wsSettings": {
+				"path": "/play"
+			}
+		}
+	},
+	{
+		"tag": "direct",
+		"protocol": "freedom",
+		"settings": {
+			"response": null
+		}
+	},
+	{
+		"tag": "blockout",
+		"protocol": "blackhole",
+		"settings": {
+			"response": {
+				"type": "http"
+			}
+		}
+	}],
+	"routing": {
+		"settings": {
+			"rules": [{
+					"ip": [
+						"geoip:cn",
+						"geoip:private"
+					],
+					"domain": ["geosite:cn"],
+					"type": "field",
+					"port": null,
+					"outboundTag": "direct"
+				},
+				{
+					"type": "chinaip",
+					"outboundTag": "direct"
+				},
+				{
+					"type": "chinasites",
+					"outboundTag": "direct"
+				}
+			],
+			"domainStrategy": "IPIfNonMatch"
+		},
+		"strategy": "rules"
+	},
+	"dns": {
+		  "servers": [
+   			{
+				"address": "127.0.0.1",
+				"port": 53,
+				"domains": ["geosite:cn"]
+			},
+      127.0.0.1
+		]
+	}
+}

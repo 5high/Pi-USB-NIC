@@ -91,8 +91,7 @@
 				"address": "127.0.0.1",
 				"port": 53,
 				"domains": ["geosite:cn"]
-			},
-      127.0.0.1
+			}
 		]
 	}
 }

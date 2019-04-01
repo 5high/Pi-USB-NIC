@@ -16,8 +16,9 @@ _IP=$(hostname -I) || true
 if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
-
-sleep 20
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A POSTROUTING -j MASQUERADE
+sleep 10
 GW=`netstat -rn|grep '0.0.0.0'|awk '{print $2}'|head -1`
 HOST_IP=$(ifconfig |grep broadcast |awk '{print $2}')
 sudo ip rule add fwmark 0x01/0x01 table 100

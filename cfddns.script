@@ -43,7 +43,9 @@
  
 ################# Resolve and set IP-variables #################
 :local currentIP [/ip address get [/ip address find interface=$WANInterface ] address];
+/tool fetch url="http://myip.dnsomatic.com/index.php" mode=http keep-result=yes
 :set WANip [:pick $currentIP 0 [:find $currentIP "/"]];
+:set WANip [/file get index.php contents]
 :set resolvedIP [:resolve $CFdomain];
  
 ################# Build CF API Url #################

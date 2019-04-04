@@ -19,7 +19,7 @@
 
 ################# CloudFlare variables #################
 :local CFDebug "true"
-:global WANInterface "ether1-gateway"  
+:global WANInterface "ether1"  
 
 :local CFdomain "sub.domain.com"
 :local CFzone "domain.com"
